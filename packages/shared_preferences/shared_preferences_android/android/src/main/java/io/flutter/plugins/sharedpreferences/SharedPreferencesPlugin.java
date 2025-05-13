@@ -46,14 +46,6 @@ public class SharedPreferencesPlugin implements FlutterPlugin, SharedPreferences
   SharedPreferencesPlugin(@NonNull SharedPreferencesListEncoder listEncoder) {
     this.listEncoder = listEncoder;
   }
-
-  @SuppressWarnings("deprecation")
-  public static void registerWith(
-      @NonNull io.flutter.plugin.common.PluginRegistry.Registrar registrar) {
-    final SharedPreferencesPlugin plugin = new SharedPreferencesPlugin();
-    plugin.setUp(registrar.messenger(), registrar.context());
-  }
-
   private void setUp(@NonNull BinaryMessenger messenger, @NonNull Context context) {
     preferences = context.getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);
     try {
